@@ -69,32 +69,30 @@
     <script>
         var n = 0;
         function begin() {
-            var b = Math.floor(Math.random() * 26);
+            var b = Math.floor(Math.random() * 26+1);
             console.info(b);
             var tmr = setInterval(abc, 50);
             var a = 0;
             function abc() {
-                if (n <= 25) {
+                if (n <= 26) {
                     n++;
                     document.getElementById("i" + n).style.boxShadow = "0 0 10px 5px red";
+                    if(n >= 2)
+                    {
                     document.getElementById("i" + (n - 1)).style = 0;
-                    if(a==2 && n==b)
-                {
-                    clearInterval(tmr);
-                    document.getElementById("i" + n).style.boxShadow = "0 0 10px 5px red";
-                }
-                }
-                else if (n == 26) 
-                {
-                    document.getElementById("i" + n).style = 0;
-                    n = 0;
-                    a += 1;
-                    console.info(a);
-                    if (a == 3 && n == b) 
+                    }
+                    if (a == 2 && n == b) 
                     {
                         clearInterval(tmr);
                         document.getElementById("i" + n).style.boxShadow = "0 0 10px 5px red";
                     }
+                }
+                else if (n > 26) 
+                {
+                    document.getElementById("i26").style = 0;
+                    n = 0;
+                    a += 1;
+                    console.info(a);
                 }
                 
             }
